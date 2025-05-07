@@ -17,9 +17,9 @@ $app = new App();
 
 header( 'Content-Type: application/json' );
 if ( !isset( $_GET['title'] ) && !isset( $_GET['prefixsearch'] ) ) {
-	echo json_encode( [ 'content' => $app->getListOfArticles() ] );
+	echo json_encode( [ 'content' => $app->getCurrentArticles() ] );
 } elseif ( isset( $_GET['prefixsearch'] ) ) {
-	$list = $app->getListOfArticles();
+	$list = $app->getCurrentArticles();
 	$ma = [];
 	foreach ( $list as $ar ) {
 		if ( strpos( strtolower( $ar ), strtolower( $_GET['prefixsearch'] ) ) === 0 ) {
@@ -28,5 +28,5 @@ if ( !isset( $_GET['title'] ) && !isset( $_GET['prefixsearch'] ) ) {
 	}
 	echo json_encode( [ 'content' => $ma ] );
 } else {
-	echo json_encode( [ 'content' => $app->fetch( $_GET ) ] );
+	echo json_encode( [ 'content' => $app->fetchArticle( $_GET ) ] );
 }
