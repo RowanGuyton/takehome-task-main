@@ -8,13 +8,13 @@ require_once dirname( __DIR__ ) . '/globals.php';
 
 class App {
 
-	public function save( $ttl, $bd ) {
-		error_log( "Saving article $ttl, success!" );
-		file_put_contents( $ttl, $bd );
+	public function save( $title, $body ) {
+		error_log( "Saving article $title, success!" );
+		file_put_contents( $title, $body );
 	}
 
-	public function update( $ttl, $bd ) {
-		$this->save( $ttl, $bd );
+	public function update( $title, $body ) {
+		$this->save( $title, $body );
 	}
 
 	public function fetch( $get ) {
