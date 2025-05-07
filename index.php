@@ -28,7 +28,7 @@ $title = '';
 $body = '';
 if ( isset( $_GET['title'] ) ) {
 	$title = htmlentities( $_GET['title'] );
-	$body = $app->fetch( $_GET );
+	$body = $app->fetchArticle( $_GET );
 	$body = file_get_contents( sprintf( 'articles/%s', $title ) );
 }
 
@@ -58,7 +58,7 @@ $body
 </form>";
 
 if ( $_POST ) {
-	$app->save( sprintf( "articles/%s", $_POST['title'] ), $_POST['body'] );
+	$app->saveArticle( sprintf( "articles/%s", $_POST['title'] ), $_POST['body'] );
 }
 echo "</div>";
 echo "</div>";
