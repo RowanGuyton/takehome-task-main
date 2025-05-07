@@ -18,7 +18,7 @@ class App {
 		file_put_contents( $title, $body );
 	}
 
-	// Updated selected article
+	// Updates selected article
 	public function updateArticle( $title, $body ) {
 		$this->saveArticle( $title, $body );
 	}
